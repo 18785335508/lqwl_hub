@@ -48,6 +48,7 @@ int menu(struct Callbook * txlp)
 	int menunumb;
 	while (1)
 	{
+		printfmenu();
 		cout <<endl<< "请选择要使用的功能" << endl;
 		cin >> menunumb;
 		cout << "选择的功能是" << menunumb << endl;
@@ -76,7 +77,10 @@ int menu(struct Callbook * txlp)
 			cout << "再见!" << endl;
 			return 0;
 			break;
-			/*default:cout << "error" << endl;*/
+
+			default:cout << "输入错误，请重新输入" << endl;
+				system("pause");
+				system("cls");
 		}
 		
 	}
@@ -119,6 +123,8 @@ void showperson(Callbook * txlp)
 	}
 	else
 		cout << "空空如也" << endl;
+	system("pause");
+	system("cls");
 }
 	
 int find(Callbook *txlp)
@@ -134,7 +140,7 @@ int find(Callbook *txlp)
 				return i;
 			}
 		}
-		return 0;
+		return -1;
 }
 
 
@@ -164,6 +170,8 @@ void deleteperson(Callbook * txlp)
 			}
 		}
 	}
+	system("pause");
+	system("cls");
 	
 }
 
@@ -190,6 +198,8 @@ void findperson(Callbook* txlp)
 		}
 
 	}
+	system("pause");
+	system("cls");
 	
 }
 
@@ -223,7 +233,8 @@ void update(Callbook * txlp)
 			cout << "添加联系人成功" << endl;
 		}
 	}
-
+	system("pause");
+	system("cls");
 }
 
 void empty(Callbook *txlp)   //逻辑清空
@@ -237,7 +248,6 @@ int main()
 	struct Callbook txl;
 	txl.coum = 0;
 	struct Callbook *txlp = &txl;
-	printfmenu();
 	menu(txlp);
 	system("pause");
 }
